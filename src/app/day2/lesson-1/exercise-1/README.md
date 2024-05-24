@@ -27,5 +27,7 @@ That's what the ```useState()``` hook is checking for.
 
 Because the state has changed, the component (and all of its children) will re-render, but this time
 they wont re-render with 0 as the current value for upvote and downVote, they will re-render with the value that the user last left them at. Declarative programming at play!
+
+YOu can read the excellent [official react docs](https://react.dev/learn/state-a-components-memory) and more about how [state causes page renders](https://react.dev/learn/render-and-commit)
 </details>
 
