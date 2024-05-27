@@ -22,12 +22,23 @@ You can see a solution in the ```answer/``` folder for this exercise and you can
 
 #### But what is actually happening
 
-We won't get to deep in to how React renders content in this exercise, but in essence React is smart enough to know that something has changed.
-That's what the ```useState()``` hook is checking for. 
+To understand this, we will want to refresh on [how react renders things](https://react.dev/learn/render-and-commit).
 
-Because the state has changed, the component (and all of its children) will re-render, but this time
-they wont re-render with 0 as the current value for upvote and downVote, they will re-render with the value that the user last left them at. Declarative programming at play!
+First a render is triggered, either for the first time when a page loads, or based on some logic to show, or re-render a component
 
-YOu can read the excellent [official react docs](https://react.dev/learn/state-a-components-memory) and more about how [state causes page renders](https://react.dev/learn/render-and-commit)
+Then the component is actually rendered, under the hood react will be doing something like
+
+```typescript jsx
+import { createRoot } from 'react-dom/client';
+const root = createRoot(document.getElementById('root'))
+root.render(<MyRootComponent />);
+```
+
+Then react will commit changes to the DOM, it will do this by making the minimal necessary changes between the last DOM and the output of the render
+
+With the above in mind, you can maybe see that all your code will be running in the render phase, and since you added a really slow API call, the whole phase will take a long time. So we want to move it away
+and in to somewhere else.
+
+That's where `useEffect` comes in, which runs AFTER all of this has happened, which will trigger another re-render, but will be very selective about what it needs to change.
 </details>
 
