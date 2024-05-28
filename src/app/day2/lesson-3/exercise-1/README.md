@@ -15,7 +15,7 @@ when you work on a project the choice was probably made for you some time ago.
 <details>
     <summary> Read this when you've had a crack </summary>
 
-You can see a solution in the ```answer/``` folder for this exercise and you can access the answer at [answer](http://localhost:3000/day2/lesson-1/exercise-1/answer-1)
+You can see a solution in the ```answer/``` folder for this exercise and you can access the answer at [answer](http://localhost:3000/day2/lesson-3/exercise-1/answer)
 
 
 #### But what is actually happening

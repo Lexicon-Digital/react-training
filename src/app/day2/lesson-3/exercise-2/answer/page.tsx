@@ -1,7 +1,7 @@
 'use client'
 
-import {useEffect} from "react";
-import styles from "../page.module.css";
+import {useEffect, useState} from "react";
+import styles from "../../page.module.css";
 
 const Page = () => {
     return <>
@@ -22,21 +22,30 @@ type Note = {
 
 
 const LatestNotes = () => {
-
+    const [notes, setNotes] = useState<PostIts>({ postIts: [] })
 
     useEffect(() => {
-        // Fetch the notes here await fetch(api_url, method/request type, [other_params]);
         const fetchNotes = async () => {
+            const notesResponse = await fetch("https://arun.au/notes")
+            const json = await notesResponse.json() as PostIts
+            console.log("Successfully fetched notes....")
+            setNotes(json)
         }
         fetchNotes()
-    }, [])
+    }, []) // Empty dependencies array because we only want to call this on initial render
 
 
     return <>
         <h4>Latest Notes</h4>
         <span className={styles.noteContainer}>
-            {/*  Map the list of notes here in to NoteItems, but you only want to show a maxiumum of 6*/}
-            {/*  Extra credit if you can order them too, but if not, don't worry  */}
+            {
+                notes.postIts
+                    .sort((note, othernote) => new Date(note.created) - new Date(othernote.created))
+                    .slice(0, 6)
+                    .map((note) => {
+                        return <NoteItem key={note.note} note={note}></NoteItem>
+                    })
+            }
         </span>
 
     </>
@@ -53,6 +62,14 @@ const NoteItem = ({note} : NoteProps) => {
                 <p className={styles.date}>{new Date(note.created).toLocaleString('default', { month: 'long', day: "2-digit" })}</p>
             </span>
 }
+
+
+
+
+
+
+
+
 
 
 export default Page
