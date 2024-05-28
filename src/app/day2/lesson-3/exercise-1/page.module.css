@@ -1,0 +1,50 @@
+.noteContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 700px;
+}
+
+.noteItem:before {
+
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #ffffff black;
+
+}
+
+.noteItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #f5ff78;
+  color: black;
+  height: 200px;
+  width: 200px;
+  margin: 3px;
+
+
+
+  .content {
+    margin-left: 3px;
+    margin-top: 3px;
+    margin-right: 16px
+  }
+
+  .author {
+    margin-top: auto;
+    font-style: italic;
+    align-self: flex-end;
+    margin-right: 16px;
+  }
+
+  .date {
+    font-size: small;
+    margin-right: 16px;
+    align-self: flex-end;
+  }
+}
