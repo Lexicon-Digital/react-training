@@ -1,9 +1,9 @@
 'use client'
 import {useState} from "react";
 import styles from "../../page.module.css";
-import {PostIts} from "@/app/day2/lesson-3/exercise-5/answer/types/Types";
-import {Spinner} from "@/app/day2/lesson-3/exercise-5/answer/components/Spinner";
-import {StickyNote} from "@/app/day2/lesson-3/exercise-5/answer/components/StickyNote";
+import {PostIts} from "@/app/day2/lesson-3/exercise-5/types/Types";
+import {Spinner} from "@/app/day2/lesson-3/exercise-5/components/Spinner";
+import {StickyNote} from "@/app/day2/lesson-3/exercise-5/components/StickyNote";
 
 type NotesByAuthorProps = {
     amount: number
@@ -17,7 +17,7 @@ export const NotesByAuthor = ({amount} : NotesByAuthorProps) => {
     const isLoading = notes.postIts.length == 0 && author.length > 0
 
     const fetchNotes = async (author: string) => {
-        const notesResponse = await fetch(`https://arun.au/notes/${author}`)
+        const notesResponse = await fetch(`https://arun.au/notes/${author}?glitch=true`)
         const json = await notesResponse.json() as PostIts
         setNotes(json)
     }

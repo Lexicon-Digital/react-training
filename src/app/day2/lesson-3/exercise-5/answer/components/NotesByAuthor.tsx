@@ -22,7 +22,7 @@ export const NotesByAuthor = ({amount} : NotesByAuthorProps) => {
     const fetchNotes = async (author: string) => {
         setLoading(true)
         try {
-            const notesResponse = await fetch(`https://arun.au/notes/${author}`)
+            const notesResponse = await fetch(`https://arun.au/notes/${author}?glitch=true`)
             if (notesResponse.ok) {
                 const json = await notesResponse.json() as PostIts
                 setNotes(json)

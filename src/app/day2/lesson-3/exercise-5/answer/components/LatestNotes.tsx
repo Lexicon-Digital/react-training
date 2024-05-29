@@ -19,7 +19,7 @@ export const LatestNotes = ({amount} : LatestNotesProps) => {
         const fetchNotes = async () => {
             setLoading(true)
             try {
-                const notesResponse = await fetch("https://arun.au/notes")
+                const notesResponse = await fetch("https://arun.au/notes?glitch=true")
                 if (notesResponse.ok) {
                     const json = await notesResponse.json() as PostIts
                     setNotes(json)

@@ -1,6 +1,6 @@
 'use client'
 import styles from "../../page.module.css";
-import {Note} from "@/app/day2/lesson-3/exercise-5/answer/types/Types";
+import {Note} from "@/app/day2/lesson-3/exercise-5/types/Types";
 
 type NoteProps = {
     note: Note

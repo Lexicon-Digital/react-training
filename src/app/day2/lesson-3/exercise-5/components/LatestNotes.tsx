@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import styles from "../../page.module.css";
-import {PostIts} from "@/app/day2/lesson-3/exercise-5/answer/types/Types";
-import {StickyNote} from "@/app/day2/lesson-3/exercise-5/answer/components/StickyNote";
-import {Spinner} from "@/app/day2/lesson-3/exercise-5/answer/components/Spinner";
+import {PostIts} from "@/app/day2/lesson-3/exercise-5/types/Types";
+import {StickyNote} from "@/app/day2/lesson-3/exercise-5/components/StickyNote";
+import {Spinner} from "@/app/day2/lesson-3/exercise-5/components/Spinner";
 
 type LatestNotesProps = {
     amount: number
@@ -15,7 +15,7 @@ export const LatestNotes = ({amount} : LatestNotesProps) => {
 
     useEffect(() => {
         const fetchNotes = async () => {
-            const notesResponse = await fetch("https://arun.au/not/a/real/uri")
+            const notesResponse = await fetch("https://arun.au/notes?glitch=true")
             const json = await notesResponse.json() as PostIts
             setNotes(json)
         }
