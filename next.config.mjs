@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {webpack(config) {
+const nextConfig = {
+    webpack(config) {
         config.module.rules.push({
             test: /\.svg$/i,
             issuer: /\.[jt]sx?$/,
@@ -7,7 +8,9 @@ const nextConfig = {webpack(config) {
         })
 
         return config
-    },};
+    },
+    //reactStrictMode: false,
+};
 
 
 
