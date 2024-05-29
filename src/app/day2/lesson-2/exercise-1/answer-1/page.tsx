@@ -1,3 +1,4 @@
+'use client'
 import {useEffect, useState} from "react";
 import {slowAPIRead} from "@/app/day2/lesson-2/exercise-1/utils";
 
@@ -20,3 +21,5 @@ const Page = () => {
         <button onClick={() => setClick(click + 1)}>{click}</button>
     </>
 }
+
+export default Page

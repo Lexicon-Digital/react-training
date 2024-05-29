@@ -1,7 +1,8 @@
 'use client'
 
 import {useEffect, useState} from "react";
-import styles from "../page.module.css";
+import styles from "../../page.module.css";
+
 
 const Page = () => {
     return <>
