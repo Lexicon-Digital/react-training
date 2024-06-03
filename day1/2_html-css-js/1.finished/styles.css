@@ -1,0 +1,11 @@
+.big-red-text {
+    color: red;
+    font-size: 32px;
+}
+
+body {
+    border: solid green 4px;
+    padding: 20px;
+    margin: 40px;
+    /* color: chocolate; */
+}
