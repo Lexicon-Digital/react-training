@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React, simply</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="content"></div>
+    <script type="text/babel">
+
+        const headerParent = document.querySelector("#header")
+        const bodyParent = document.querySelector("#content")
+
+        const reactElement = React.createElement("h1", {style: {color: "red"}}, "Just Reacting");
+        const rootForHeader = ReactDOM.createRoot(headerParent)
+        rootForHeader.render(reactElement)
+
+        const jsx = "JSX";
+        const jsxReactElement = <p>let's do some <b>{jsx}</b></p>
+        const rootForBody = ReactDOM.createRoot(bodyParent)
+        rootForBody.render(jsxReactElement)
+    </script>
+</body>
+</html>

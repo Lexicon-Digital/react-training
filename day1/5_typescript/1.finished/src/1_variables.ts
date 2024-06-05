@@ -1,4 +1,5 @@
 {
+  // declarations
   const country = "Australia";
   // country = "Indonesia" // constant, cannot change
 
@@ -53,4 +54,5 @@
   console.log(typeof age); // ▶️ will print "number"
   console.log(typeof isSocial); // ▶️ will print "boolean"
   console.log(typeof interests); // ▶️ will print "object" (📝 array is an oject)
+  console.log(Array.isArray(interests)); // ▶️ will print "true"
 }
