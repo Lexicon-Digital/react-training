@@ -3,7 +3,10 @@ import Board from './board'
 
 function App() {
   return (
-    <Board />
+    <>
+      <h1>The Board</h1>
+      <Board />
+    </>
   )
 }
 

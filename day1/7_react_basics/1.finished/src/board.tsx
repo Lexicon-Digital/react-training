@@ -7,7 +7,6 @@ export default function Board() {
 
     return (
         <>
-            <h1>The posts</h1>
             <div className="container">
                 {
                     postIts.map((item) => (
