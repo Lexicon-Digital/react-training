@@ -1,4 +1,5 @@
 import { getPosts } from "./data/getPosts";
+import PostItNote from "./postItNote";
 
 export default function Board() {
 
@@ -9,16 +10,7 @@ export default function Board() {
         <>
             <div className="container">
                 {
-                    postIts.map((item) => (
-                        <div className="note" key={item.author}>
-                            <div className="note-text">
-                                <p>{item.quote} </p>
-                            </div>
-                            <div className="note-author">
-                                <sub>- {item.author}</sub>
-                            </div>
-                        </div>
-                    ))
+                    postIts.map((item) => <PostItNote item={item} />)
                 }
             </div>
         </>
