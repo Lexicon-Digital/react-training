@@ -10,6 +10,9 @@ export default function Board() {
         <>
             <div className="container">
                 {
+                    postIts.length === 0 && <div>No posts</div>
+                }
+                {
                     postIts.map((item) => <PostItNote item={item} />)
                 }
             </div>
