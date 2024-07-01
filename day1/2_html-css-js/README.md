@@ -18,4 +18,4 @@
 
 ### JS
 - makes the static HTML page dynamic
-- more to come...
+- including and running external script files as modules
