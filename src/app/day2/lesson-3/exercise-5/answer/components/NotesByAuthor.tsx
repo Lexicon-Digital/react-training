@@ -1,16 +1,16 @@
 'use client'
-import {useState} from "react";
+import { useState } from "react";
 import styles from "../../../page.module.css";
-import {PostIts} from "@/app/day2/lesson-3/exercise-4/answer/types/Types";
-import {Spinner} from "@/app/day2/lesson-3/exercise-4/answer/components/Spinner";
-import {StickyNote} from "@/app/day2/lesson-3/exercise-4/answer/components/StickyNote";
-import {Error} from "@/app/day2/lesson-3/exercise-5/answer/components/Error";
+import { PostIts } from "@/app/day2/lesson-3/exercise-4/answer/types/Types";
+import { Spinner } from "@/app/day2/lesson-3/exercise-4/answer/components/Spinner";
+import { StickyNote } from "@/app/day2/lesson-3/exercise-4/answer/components/StickyNote";
+import { Error } from "@/app/day2/lesson-3/exercise-5/answer/components/Error";
 
 type NotesByAuthorProps = {
     amount: number
 }
 
-export const NotesByAuthor = ({amount} : NotesByAuthorProps) => {
+export const NotesByAuthor = ({ amount }: NotesByAuthorProps) => {
 
     const [author, setAuthor] = useState("")
     const [notes, setNotes] = useState<PostIts>({ postIts: [] })
@@ -22,7 +22,7 @@ export const NotesByAuthor = ({amount} : NotesByAuthorProps) => {
     const fetchNotes = async (author: string) => {
         setLoading(true)
         try {
-            const notesResponse = await fetch(`https://arun.au/notes/${author}?glitch=true`)
+            const notesResponse = await fetch(`https://intro-lemon.vercel.app/api/posts/${author}?glitch=true`)
             if (notesResponse.ok) {
                 const json = await notesResponse.json() as PostIts
                 setNotes(json)
@@ -48,19 +48,19 @@ export const NotesByAuthor = ({amount} : NotesByAuthorProps) => {
             <option value={"Monkey"}>Monkey</option>
             <option value={"Croc"}>Croc</option>
         </select>
-        { error && <Error><p>Oops, thats not good!</p></Error>}
-        { loading ?
-            <Spinner/> :
+        {error && <Error><p>Oops, thats not good!</p></Error>}
+        {loading ?
+            <Spinner /> :
             <span className={styles.noteContainer}>
-            {
-                notes.postIts
-                    .sort((note, othernote) => new Date(note.created) - new Date(othernote.created))
-                    .slice(0, amount)
-                    .map((note) => {
-                        return <StickyNote key={note.note} note={note}></StickyNote>
-                    })
-            }
-        </span>
+                {
+                    notes.postIts
+                        .sort((note, othernote) => new Date(note.created) - new Date(othernote.created))
+                        .slice(0, amount)
+                        .map((note) => {
+                            return <StickyNote key={note.note} note={note}></StickyNote>
+                        })
+                }
+            </span>
         }
 
     </>

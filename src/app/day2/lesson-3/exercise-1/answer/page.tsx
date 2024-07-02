@@ -1,12 +1,12 @@
 'use client'
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import styles from "../../page.module.css";
 
 const Page = () => {
     return <>
         <h1> Note-worthy 📝 </h1>
-        <LatestNotes/>
+        <LatestNotes />
     </>
 }
 
@@ -26,7 +26,7 @@ const LatestNotes = () => {
 
     useEffect(() => {
         const fetchNotes = async () => {
-            const notesResponse = await fetch("https://arun.au/notes")
+            const notesResponse = await fetch("https://intro-lemon.vercel.app/api/posts")
             const json = await notesResponse.json() as PostIts
             console.log("Successfully fetched notes....")
             setNotes(json)
@@ -40,10 +40,10 @@ const LatestNotes = () => {
         <span className={styles.noteContainer}>
             {
                 notes.postIts
-                    .sort((note, othernote) => new Date(note.created) - new Date(othernote.created))
+                    .sort((note, othernote) => new Date(note.created).getTime() - new Date(othernote.created).getTime())
                     .slice(0, 6)
                     .map((note) => {
-                        return <NoteItem note={note}></NoteItem>
+                        return <NoteItem key={note.created} note={note}></NoteItem>
                     })
             }
         </span>
@@ -55,12 +55,12 @@ type NoteProps = {
     note: Note
 }
 
-const NoteItem = ({note} : NoteProps) => {
+const NoteItem = ({ note }: NoteProps) => {
     return <span className={styles.noteItem}>
-                <p className={styles.content}>{note.note}</p>
-                <p className={styles.author}>- {note.author}</p>
-                <p className={styles.date}>{new Date(note.created).toLocaleString('default', { month: 'long', day: "2-digit" })}</p>
-            </span>
+        <p className={styles.content}>{note.note}</p>
+        <p className={styles.author}>- {note.author}</p>
+        <p className={styles.date}>{new Date(note.created).toLocaleString('default', { month: 'long', day: "2-digit" })}</p>
+    </span>
 }
 
 

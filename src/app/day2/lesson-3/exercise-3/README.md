@@ -4,7 +4,7 @@
 
 Now after that little keys diversion, lets get back to building out our API. We want to add a bit more functionality to our notes app, like showing all the notes written by a specific author.
 
-We've got a new endpoint https://arun.au/notes/{author} which will return us all notes that were written by a specific author. Your challenge for this exercise is to implement the functionality to list all notes from the specific author that the user selects.
+We've got a new endpoint https://intro-lemon.vercel.app/api/posts/{author} which will return us all notes that were written by a specific author. Your challenge for this exercise is to implement the functionality to list all notes from the specific author that the user selects.
 #### Answer
 
 <details>

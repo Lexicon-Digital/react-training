@@ -4,7 +4,7 @@ You can see the finished product of how an API loads on the [page](http://localh
 
 ### Exercise
 
-The challenge here is to use the fetch API to make a call to the following endpoint https://arun.au/notes which will return a list of notes, you will then
+The challenge here is to use the fetch API to make a call to the following endpoint https://intro-lemon.vercel.app/api/posts which will return a list of notes, you will then
 need to display the list of notes on the screen. There are some hints in the exercise page to help guide you.
 
 The *[fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)* to make HTTP requests. The fetch API is provided by the browser and is available in all modern browsers (and Node.js).
@@ -38,7 +38,7 @@ Then we need to use our useEffect to actually fetch the notes
 
 ```typescript jsx
 const fetchNotes = async () => {
-    const notesResponse = await fetch("https://arun.au/notes")
+    const notesResponse = await fetch("https://intro-lemon.vercel.app/api/posts")
                             1               2
     const json = await notesResponse.json() as PostIts
                    3                   4          5

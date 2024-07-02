@@ -1,14 +1,14 @@
 'use client'
 
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import styles from "../../page.module.css";
 
 
 const Page = () => {
     return <>
         <h1> Note-worthy 📝 </h1>
-        <LatestNotes/>
-        <NotesByAuthor/>
+        <LatestNotes />
+        <NotesByAuthor />
     </>
 }
 
@@ -18,7 +18,7 @@ const NotesByAuthor = () => {
     const [notes, setNotes] = useState<PostIts>({ postIts: [] })
 
     const fetchNotes = async (author: string) => {
-        const notesResponse = await fetch(`https://arun.au/notes/${author}`)
+        const notesResponse = await fetch(`https://intro-lemon.vercel.app/api/posts/${author}`)
         const json = await notesResponse.json() as PostIts
         setNotes(json)
     }
@@ -65,7 +65,7 @@ const LatestNotes = () => {
 
     useEffect(() => {
         const fetchNotes = async () => {
-            const notesResponse = await fetch("https://arun.au/notes")
+            const notesResponse = await fetch("https://intro-lemon.vercel.app/api/posts")
             const json = await notesResponse.json() as PostIts
             console.log("Successfully fetched notes....")
             setNotes(json)
@@ -94,12 +94,12 @@ type NoteProps = {
     note: Note
 }
 
-const NoteItem = ({note} : NoteProps) => {
+const NoteItem = ({ note }: NoteProps) => {
     return <span className={styles.noteItem}>
-                <p className={styles.content}>{note.note}</p>
-                <p className={styles.author}>- {note.author}</p>
-                <p className={styles.date}>{new Date(note.created).toLocaleString('default', { month: 'long', day: "2-digit" })}</p>
-            </span>
+        <p className={styles.content}>{note.note}</p>
+        <p className={styles.author}>- {note.author}</p>
+        <p className={styles.date}>{new Date(note.created).toLocaleString('default', { month: 'long', day: "2-digit" })}</p>
+    </span>
 }
 
 
