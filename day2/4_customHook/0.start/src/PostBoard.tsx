@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "./App";
 import PostIt from "./PostIt";
 import { PostItNote } from "./types/types";
 
 export default function PostBoard({ posts }: BoardProps) {
 
+    const isDark = useContext(ThemeContext);
 
     const [totalLikes, setTotalLikes] = useState(0);
     const [searchTerm, setSearchTerm] = useState<string>("")
@@ -34,7 +36,7 @@ export default function PostBoard({ posts }: BoardProps) {
                 total likes: {totalLikes}
             </div>
             <div> <input type="text" placeholder="search" value={searchTerm} onChange={search}></input></div>
-            <div className="container">
+            <div style={{ backgroundColor: isDark ? "black" : "white" }}>
                 {
                     postsCount === 0 && <div>No posts</div>
                 }
