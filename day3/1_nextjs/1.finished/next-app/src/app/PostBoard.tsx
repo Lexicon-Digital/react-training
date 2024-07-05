@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "./App";
 import PostIt from "./PostIt";
-import { PostItNote } from "./types/types";
+import { PostItNote } from "./_types/types";
 
 export default function PostBoard({ posts }: BoardProps) {
 

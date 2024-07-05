@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "./App";
-import { PostItNote } from "./types/types";
+import { PostItNote } from "./_types/types";
 
 export default function PostIt({ item, totalLikes, incrementLikes }: PostItProps) {
 

@@ -1,4 +1,4 @@
-import { PostItNote, PostsResponse } from "../types/types";
+import { PostItNote, PostsResponse } from "../_types/types";
 
 const getPostsFromResponse = (postItsResponse: PostsResponse): PostItNote[] => {
   return postItsResponse.postIts.map((postIt) => ({
