@@ -2,7 +2,11 @@ import Link from "next/link";
 
 export default async function Authors() {
 
-    const response = await fetch("https://intro-lemon.vercel.app/api/authors");
+    // await new Promise((resolve) => setTimeout(resolve, 4000))
+
+    const response = await fetch(`https://intro-lemon.vercel.app/api/authors`, {
+        cache: "no-store"
+    });
     const data: {
         authors: {
             name: string, numberOfNotes: number
