@@ -1,0 +1,13 @@
+.red-text {
+    color: red
+}
+
+#green-text {
+    color:green
+}
+
+div.container {
+    background-color: lightcyan;
+    border: solid black 1px;
+    padding: 12px;
+}

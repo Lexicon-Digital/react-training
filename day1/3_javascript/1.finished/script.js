@@ -1,5 +1,3 @@
-import { ENV } from "./constants.js";
-
 document.addEventListener("DOMContentLoaded", function () {
   const element = document.createElement("p");
   element.innerHTML = "<h3>I was dynamically generated</h3>";
@@ -10,5 +8,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector(".container").appendChild(element);
 });
-
-console.log("running in env: " + ENV);

@@ -3,19 +3,18 @@
 ### HTML
 - HTML originally designed for documents on web, is the building block of web applications
 - HTML defines the structure of the web page
-- Markup language that tells the browser how to render the content
-- Links to other content
-- Helps search engines understand whats in the page
-- Helps accessibility tools make sense of the page
-- Made up of nested elements
+- The DOM
+- If you are building for the internet, SEO, Usability etc. are important
 
 ### CSS
-- Adds styles to the HTML document and individual elements
+- multiple ways to add style
+- editing css from chrome tools
 - Understand the box model
 - Understand the cascading nature of the styles
-- different ways to apply styles to elements, priority order
-- css has been painful for years, some solutions to make it less painful
+- css has been painful for years, new solution built on top of css to make it less painful
 
 ### JS
 - makes the static HTML page dynamic
+- running JS from console
+- can update DOM and handle events
 - including and running external script files as modules
