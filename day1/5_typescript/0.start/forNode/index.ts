@@ -16,6 +16,9 @@ console.log(`item is ${item}.`);
   console.log(Array.isArray(interests)); // ▶️ will print "true"
 }
 
+const [firstName, age] = ["Issac", 33];
+console.log(`${firstName} is ${age} years old`);
+
 ////// method signature
 function addUp(a: number, b: number): number {
   return a + b;
