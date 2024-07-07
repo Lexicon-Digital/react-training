@@ -1,0 +1,19 @@
+{
+  "name": "is-odd",
+  "version": "1.0.0",
+  "description": "checks if number is odd",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@get200ok/is-even-number": "^1.0.0",
+    "is-even": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

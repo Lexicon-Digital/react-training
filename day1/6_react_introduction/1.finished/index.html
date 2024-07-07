@@ -14,15 +14,15 @@
     <script type="text/babel">
 
         const headerParent = document.querySelector("#header")
-        const bodyParent = document.querySelector("#content")
+        const contentParent = document.querySelector("#content")
 
         const reactElement = React.createElement("h1", {style: {color: "red"}}, "Just Reacting");
         const rootForHeader = ReactDOM.createRoot(headerParent)
         rootForHeader.render(reactElement)
 
-        const jsx = "JSX";
-        const jsxReactElement = <p>let's do some <b>{jsx}</b></p>
-        const rootForBody = ReactDOM.createRoot(bodyParent)
+        const task = "REACT";
+        const jsxReactElement = <p>let's do some <b>{task}</b></p>
+        const rootForBody = ReactDOM.createRoot(contentParent)
         rootForBody.render(jsxReactElement)
     </script>
 </body>
