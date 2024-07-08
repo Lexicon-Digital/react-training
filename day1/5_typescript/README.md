@@ -10,4 +10,7 @@
   - GET https://intro-lemon.vercel.app/api/authors
   - GET https://intro-lemon.vercel.app/api/posts/{author}
 - fetch and display data with types
- 
+
+- linting and errors - showcase
+- show errors in TSC
+- show in TS playground 

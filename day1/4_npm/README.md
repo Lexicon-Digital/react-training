@@ -14,6 +14,7 @@
   - import { isEvenNumber as isEven } from "@get200ok/is-even-number";
 - type: module in package.json
 - test code
+- many such bundlers available, most mature frameworks have this pre-setup
 
 ## Browser
 
