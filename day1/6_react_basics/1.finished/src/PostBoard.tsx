@@ -1,3 +1,6 @@
+import ErrorMessage from "./ErrorMessage";
+import InfoMessage from "./InfoMessage";
+import Overlay from "./Overlay";
 import PostIt from "./PostIt";
 import { PostItNote } from "./types/types";
 
@@ -6,9 +9,12 @@ export default function PostBoard({ posts }: BoardProps) {
 
     const totalLikes = 0;
     const postsCount = posts?.length ?? 0;
+    const hasError = false
+    const alertMessage = hasError ? <ErrorMessage /> : <InfoMessage />
 
     return (
         <>
+            <Overlay children={alertMessage} />
             <div>
                 total posts: {postsCount}
             </div>

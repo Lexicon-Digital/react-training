@@ -24,7 +24,6 @@ export default function RootLayout({
 
         </div>
         <main style={{ flexGrow: 20, height: "90vh", padding: 12 }}>{children}</main>
-        <div style={{ flexGrow: 1, backgroundColor: "lightgrey", padding: 12 }}>footer</div>
       </body>
     </html>
   );

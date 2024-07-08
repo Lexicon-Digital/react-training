@@ -14,7 +14,7 @@
 - css has been painful for years, new solution built on top of css to make it less painful
 
 ### JS
-- makes the static HTML page dynamic
+- makes the static HTML page dynami
 - running JS from console
 - can update DOM and handle events
 - including and running external script files as modules
