@@ -10,7 +10,6 @@ export default function PostIt({ item, totalLikes, incrementLikes }: PostItProps
     const like = () => {
         console.log("liked");
         // setLikeCount(likeCount + 1);
-        // setLikeCount(likeCount + 1);
         setLikeCount(currentValue => {
             return currentValue + 1;
         })

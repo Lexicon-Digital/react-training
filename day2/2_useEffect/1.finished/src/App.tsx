@@ -18,6 +18,16 @@ function App() {
   }, [])
 
 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const response = await fetch("https://intro-lemon.vercel.app/api/posts");
+  //     const json = await response.json();
+  //     const postsData = getPostsFromResponse(json);
+  //     setPosts(postsData);
+  //   }
+  //   fetchData();
+  // }, []);
+
   return (
     <>
       <h1>The Board</h1>
