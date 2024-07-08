@@ -1,6 +1,6 @@
-import { PostIt } from "../types/types";
+import { PostItNote } from "../types/types";
 
-const getPosts = (): PostIt[] => {
+const getPosts = (): PostItNote[] => {
   return [
     {
       author: "one",

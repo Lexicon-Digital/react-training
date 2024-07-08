@@ -1,8 +1,8 @@
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import PostBoard from './PostBoard';
 import { usePostsData } from './data/usePostsData';
+import { ThemeContext } from './data/useTheme';
 
-export const ThemeContext = createContext<boolean>(false);
 
 function App() {
 

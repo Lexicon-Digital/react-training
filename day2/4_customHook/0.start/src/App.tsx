@@ -24,7 +24,7 @@ function App() {
   const toggleDark = () => {
     setIsDark(value => !value)
   }
-  // show props drilling...
+
   return (
     <ThemeContext.Provider value={isDark}>
       <h1>The Board</h1>

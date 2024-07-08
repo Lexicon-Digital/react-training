@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "./context";
+import { useEffect, useState } from "react";
 import PostIt from "./PostIt";
 import { PostItNote } from "./types/types";
+import { useTheme } from "./data/useTheme";
 
 export default function PostBoard({ posts }: BoardProps) {
 
-    const isDark = useContext(ThemeContext);
+    const isDark = useTheme();
 
     const [totalLikes, setTotalLikes] = useState(0);
     const [searchTerm, setSearchTerm] = useState<string>("")

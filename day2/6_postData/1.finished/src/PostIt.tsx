@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
-import { ThemeContext } from "./context";
+import { useState } from "react";
 import { PostItNote } from "./types/types";
+import { useTheme } from "./data/useTheme";
 
 export default function PostIt({ item, totalLikes, incrementLikes }: PostItProps) {
 
-    const isDark = useContext(ThemeContext)
+    const isDark = useTheme();
 
     const [likeCount, setLikeCount] = useState(0);
     const like = () => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Board from "./Board";
-import { ThemeContext } from "./context";
+import { ThemeContext } from "./data/useTheme";
 
 const queryClient = new QueryClient();
 
