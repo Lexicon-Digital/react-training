@@ -1,10 +1,8 @@
-import { postIts } from "../types/types";
-
-const getData = async () => {
+const getData = async <T>(): Promise<T> => {
   const response = await fetch("https://intro-lemon.vercel.app/api/posts");
-  const data: postIts = await response.json();
+  const data = await response.json();
 
-  return data.postIts;
+  return data as T;
 };
 
 export { getData };
