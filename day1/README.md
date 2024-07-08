@@ -3,6 +3,10 @@
  - View your UI as a collection of (react) components
    - diagrams to explain
  - Build a UI with React components, bundle using Vite
+ - Vite things
+   - ts to js on fly
+   - try build
+   - public folder
  - Function components beat Class components
    - Pure functions
    - Impure functions

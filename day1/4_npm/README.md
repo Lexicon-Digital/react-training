@@ -14,9 +14,12 @@
   - import { isEvenNumber as isEven } from "@get200ok/is-even-number";
 - type: module in package.json
 - test code
-- many such bundlers available, most mature frameworks have this pre-setup
 
 ## Browser
+- using rollup to bundle all code, make available for browser
+- many such bundlers available, most bundlers have everything set up, may have to tweak
+- Problem with bundling everything together, load upfront
+- The idea of SPA
 
 
 

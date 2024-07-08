@@ -11,3 +11,5 @@
 - regular or arrow function? pick one and stick to it
 - start using template string
 - dynamic typing
+- single thread and event loop
+- Promise
