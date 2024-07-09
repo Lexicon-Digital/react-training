@@ -1,3 +1,16 @@
+Types for API response
+```ts
+export type PostItResponse = {
+  note: string;
+  author: string;
+  created: string;
+};
+
+export type PostsResponse = {
+  postIts: PostItResponse[];
+};
+```
+
 Fetch data in a useEffect using promise chaining
 ```ts
   useEffect(() => {
@@ -31,3 +44,26 @@ Alterative to fetch data in a useEffect using promise async/await using a IIFE (
     })();
   }, []);
 ```
+
+Also need to consider error and loading states
+
+```ts
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setIsLoading(true);
+        setIsError(false);
+        const response = await fetch(
+          "https://intro-lemon.vercel.app/api/posts?glitch=true"
+        );
+        const json = (await response.json()) as PostsResponse;
+        setPosts(json.postIts);
+      } catch {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+  ```
