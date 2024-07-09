@@ -2,7 +2,7 @@
 - `npm install -D vitest` 
 - add script to package.json
 - create and run test
-- `npm install -D @testing-library/react @testing-library/jest-dom`
+- `npm install -D @testing-library/react @testing-library/jest-dom jsdom` 
 - update config
 ```
 /// <reference types="vitest"/>
