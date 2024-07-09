@@ -1,26 +1,28 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { PostItNote, PostRequest } from "./types/types";
-import { useState } from "react";
+import { PostItNote, PostRequest } from "../types/types";
+import { useRef, useState } from "react";
 
-type FormErrors = { author?: string; quote?: string };
+type FormErrors = { author?: string; note?: string };
 
 const getErrors = (note: Partial<PostItNote>): FormErrors | null => {
   const hasAuthorError = !note.author || typeof note.author !== "string";
-  const hasQuoteError = !note.quote || typeof note.quote !== "string";
+  const hasNoteError = !note.note || typeof note.note !== "string";
 
-  if (!hasAuthorError && !hasQuoteError) {
+  if (!hasAuthorError && !hasNoteError) {
     return null;
   }
 
   return {
     author: hasAuthorError ? "Author is required" : undefined,
-    quote: hasQuoteError ? "Quote is required" : undefined,
+    note: hasNoteError ? "Note is required" : undefined,
   };
 };
 
 export default function CreateNote() {
   const queryClient = useQueryClient();
   const [errors, setErrors] = useState<FormErrors | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const authorRef = useRef<HTMLInputElement>(null);
 
   const mutation = useMutation({
     mutationFn: async (note: PostRequest) => {
@@ -31,7 +33,7 @@ export default function CreateNote() {
       return await res.json();
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["posts"] });
+      queryClient.invalidateQueries({ queryKey: ["posts"] }); // clear the cache to tell TanStack Query to fetch the posts again automatically
     },
   });
 
@@ -39,7 +41,7 @@ export default function CreateNote() {
     event.preventDefault();
     const postItNote: Partial<PostItNote> = {
       author: event.currentTarget.author.value,
-      quote: event.currentTarget.quote.value,
+      note: event.currentTarget.note.value,
     };
 
     const formErrors = getErrors(postItNote);
@@ -48,22 +50,37 @@ export default function CreateNote() {
       return;
     }
 
-    event.currentTarget.reset();
     await mutation.mutateAsync({
       author: postItNote.author!,
-      note: postItNote.quote!,
+      note: postItNote.note!,
     });
+
+    formRef.current?.reset();
+    setTimeout(() => {
+        authorRef.current?.focus();
+    }, 0);
   };
 
   return (
     <div>
-      <form onSubmit={createNote}>
-        <input type="text" id="author" placeholder="Author" />
+      <form ref={formRef} onSubmit={createNote}>
+        <input
+          ref={authorRef}
+          type="text"
+          id="author"
+          placeholder="Author"
+          disabled={mutation.isPending}
+        />
         {errors?.author && <span className="form-error">{errors.author}</span>}
-        <input type="text" id="quote" placeholder="Quote" />
-        {errors?.quote && <span className="form-error">{errors.quote}</span>}
+        <input
+          type="text"
+          id="note"
+          placeholder="Note"
+          disabled={mutation.isPending}
+        />
+        {errors?.note && <span className="form-error">{errors.note}</span>}
         <button type="submit" disabled={mutation.isPending}>
-          Save Quote
+          Save Note
         </button>
       </form>
     </div>
