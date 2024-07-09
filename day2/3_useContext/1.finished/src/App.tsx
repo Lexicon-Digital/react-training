@@ -1,37 +1,30 @@
-import { createContext, useEffect, useState } from 'react';
-import PostBoard from './PostBoard';
-import { getPostsFromResponse } from './data/getPosts';
-import { PostItNote, PostsResponse } from './types/types';
-
-
-export const ThemeContext = createContext<boolean>(false);
+import { useState } from "react";
+import PostBoard from "./components/PostBoard";
+import { getPosts } from "./data/getPosts";
+import "./styles/app.css";
+import {
+  TotalLikeCountContext,
+  IncrementTotalLikeCountContext,
+} from "./contexts";
 
 function App() {
+  const posts = getPosts();
 
+  const [totalLikes, setTotalLikes] = useState(0);
 
-  const [isDark, setIsDark] = useState(false);
-  const [posts, setPosts] = useState<PostItNote[]>([]);
+  const incrementLikes = () => {
+    setTotalLikes(totalLikes + 1);
+  };
 
-  useEffect(() => {
-    fetch("https://intro-lemon.vercel.app/api/posts")
-      .then((response: Response) => response.json())
-      .then((data: PostsResponse) => {
-        setPosts(getPostsFromResponse(data))
-      })
-  }, [])
-
-
-  const toggleDark = () => {
-    setIsDark(value => !value)
-  }
-  // show props drilling...
   return (
-    <ThemeContext.Provider value={isDark}>
-      <h1>The Board</h1>
-      <input type="checkbox" id="toggle" checked={isDark} onChange={toggleDark} /><label htmlFor="toggle"> is Dark </label>
-      <PostBoard posts={posts} />
-    </ThemeContext.Provider>
-  )
+    <TotalLikeCountContext.Provider value={totalLikes}>
+      <IncrementTotalLikeCountContext.Provider value={incrementLikes}>
+        <h1>The Board</h1>
+        <label htmlFor="toggle"> is Dark </label>
+        <PostBoard posts={posts} />
+      </IncrementTotalLikeCountContext.Provider>
+    </TotalLikeCountContext.Provider>
+  );
 }
 
-export default App
+export default App;
