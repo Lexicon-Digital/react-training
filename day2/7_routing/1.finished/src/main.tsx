@@ -5,8 +5,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Board from './Board.tsx';
-import CreateNote from './CreateNote.tsx';
+import PostBoard from "./components/PostBoard";
+import CreateNote from './components/CreateNote.tsx';
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Board />
+        element: <PostBoard />
       },
       {
         path: "create",
