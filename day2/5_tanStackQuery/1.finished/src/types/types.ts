@@ -1,14 +1,14 @@
 export type PostItNote = {
   author: string;
-  quote: string;
+  note: string;
 };
 
-export type PostResponse = {
+export type PostItResponse = {
   note: string;
   author: string;
   created: string;
 };
 
 export type PostsResponse = {
-  postIts: PostResponse[];
+  postIts: PostItResponse[];
 };

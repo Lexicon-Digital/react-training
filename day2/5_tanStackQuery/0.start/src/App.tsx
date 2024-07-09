@@ -1,27 +1,19 @@
-import { useState } from 'react';
-import PostBoard from './PostBoard';
-import { usePostsData } from './data/usePostsData';
-import { ThemeContext } from './data/useTheme';
-
+import PostBoard from "./components/PostBoard";
+import "./styles/app.css";
+import { usePostsData } from "./hooks/usePostsData";
+import AppProviders from "./components/AppProviders";
 
 function App() {
-
-  const [isDark, setIsDark] = useState(false);
-  const [posts, isLoading] = usePostsData()
-
-
-
-  const toggleDark = () => {
-    setIsDark(value => !value)
-  }
-  // show props drilling...
+  const { hasContent, isError, isLoading, posts } = usePostsData();
+  
   return (
-    <ThemeContext.Provider value={isDark}>
+    <AppProviders>
       <h1>The Board</h1>
-      <input type="checkbox" id="toggle" checked={isDark} onChange={toggleDark} /><label htmlFor="toggle"> is Dark </label>
-      {isLoading ? <div>loading....</div> : <PostBoard posts={posts} />}
-    </ThemeContext.Provider>
-  )
+      {hasContent && <PostBoard posts={posts} />}
+      {isLoading && <div>Loading...</div>}
+      {isError && <div className="notes-error">⚠ Could not load posts</div>}
+    </AppProviders>
+  );
 }
 
-export default App
+export default App;
