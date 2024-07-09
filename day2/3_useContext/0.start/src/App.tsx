@@ -1,29 +1,24 @@
-import { useEffect, useState } from 'react';
-import PostBoard from './PostBoard';
-import { getPostsFromResponse } from './data/getPosts';
-import { PostItNote, PostsResponse } from './types/types';
-
-
+import { useState } from "react";
+import PostBoard from "./components/PostBoard";
+import { getPosts } from "./data/getPosts";
+import "./styles/app.css";
 
 function App() {
+  const posts = getPosts();
 
-  const [posts, setPosts] = useState<PostItNote[]>([]);
+  const [totalLikes, setTotalLikes] = useState(0);
 
-  useEffect(() => {
-    fetch("https://intro-lemon.vercel.app/api/posts")
-      .then((response: Response) => response.json())
-      .then((data: PostsResponse) => {
-        setPosts(getPostsFromResponse(data))
-      })
-  }, [])
-
+  const incrementLikes = () => {
+    setTotalLikes(totalLikes + 1);
+  };
 
   return (
     <>
       <h1>The Board</h1>
+      <label htmlFor="toggle"> is Dark </label>
       <PostBoard posts={posts} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

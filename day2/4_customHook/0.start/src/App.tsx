@@ -1,37 +1,19 @@
-import { createContext, useEffect, useState } from 'react';
-import PostBoard from './PostBoard';
-import { getPostsFromResponse } from './data/getPosts';
-import { PostItNote, PostsResponse } from './types/types';
-
-
-export const ThemeContext = createContext<boolean>(false);
+import PostBoard from "./components/PostBoard";
+import "./styles/app.css";
+import { usePostsData } from "./hooks/usePostsData";
+import AppProviders from "./components/AppProviders";
 
 function App() {
-
-
-  const [isDark, setIsDark] = useState(false);
-  const [posts, setPosts] = useState<PostItNote[]>([]);
-
-  useEffect(() => {
-    fetch("https://intro-lemon.vercel.app/api/posts")
-      .then((response: Response) => response.json())
-      .then((data: PostsResponse) => {
-        setPosts(getPostsFromResponse(data))
-      })
-  }, [])
-
-
-  const toggleDark = () => {
-    setIsDark(value => !value)
-  }
-
+  const { hasContent, isError, isLoading, posts } = usePostsData();
+  
   return (
-    <ThemeContext.Provider value={isDark}>
+    <AppProviders>
       <h1>The Board</h1>
-      <input type="checkbox" id="toggle" checked={isDark} onChange={toggleDark} /><label htmlFor="toggle"> is Dark </label>
-      <PostBoard posts={posts} />
-    </ThemeContext.Provider>
-  )
+      {hasContent && <PostBoard posts={posts} />}
+      {isLoading && <div>Loading...</div>}
+      {isError && <div className="notes-error">⚠ Could not load posts</div>}
+    </AppProviders>
+  );
 }
 
-export default App
+export default App;
