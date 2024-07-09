@@ -1,4 +1,4 @@
 export type PostItNote = {
   author: string;
-  quote: string;
+  note: string;
 };
