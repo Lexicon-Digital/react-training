@@ -11,7 +11,10 @@ const addPost = async (data: FormData) => {
 
   console.log(`${newNote.note} - ${newNote.author}`);
 
-  // TODO.1: add user using API
+  const res = await fetch("https://intro-lemon.vercel.app/api/posts", {
+    method: "post",
+    body: JSON.stringify(newNote),
+  });
 
   revalidatePath("/");
   redirect("/");

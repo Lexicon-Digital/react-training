@@ -1,5 +1,3 @@
-"use client"
-
 import PostBoard from "./_components/PostBoard";
 import "./styles/app.css";
 import { usePostsData } from "./_hooks/usePostsData";
