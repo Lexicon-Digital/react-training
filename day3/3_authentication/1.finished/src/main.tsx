@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <AuthenticationGuard component={PostBoard} />,
+        element: <PostBoard />,
       },
       {
         path: "create",

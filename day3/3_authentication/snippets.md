@@ -31,6 +31,7 @@ import React from "react";
 
 export const AuthenticationGuard = ({
   component,
+  ...props
 }: {
   component: React.ComponentType;
 }) => {
@@ -38,7 +39,7 @@ export const AuthenticationGuard = ({
     onRedirecting: () => <div className="page-layout">Loading...</div>,
   });
 
-  return <Component />;
+  return <Component {...props} />;
 };
 ```
 
