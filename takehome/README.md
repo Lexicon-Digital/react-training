@@ -1,5 +1,12 @@
 ## Take home exercise
 
+Create a resource library for React development.
+- list all resources
+- filter by keywords
+- search by description
+- add new resource
+
+
 Re-purpose the posts-API to create a React related resource collection. 
 
 ```
@@ -27,4 +34,7 @@ type Resource = {
 }
 
 ```
+
+
+
 
