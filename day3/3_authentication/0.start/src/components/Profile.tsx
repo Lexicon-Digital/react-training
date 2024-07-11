@@ -7,18 +7,7 @@ const Profile = () => {
 
   useEffect(() => {
     const getUserMetadata = async () => {  
-      try {
-        const accessToken = await getAccessTokenSilently();
-        setAccessToken(accessToken);
-  
-        await fetch("https://intro-lemon.vercel.app/api/posts", {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-      } catch (e) {
-        console.log((e as Error).message);
-      }
+      // TODO
     };
   
     getUserMetadata();
