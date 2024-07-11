@@ -8,7 +8,7 @@ import Statistics from "./components/Statistics.tsx";
 import AuthorBoard from "./components/AuthorBoard.tsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import Profile from "./components/Profile.tsx";
-import { AuthenticationGuard } from "./components/AuthenticationGuard.tsx";
+import { AuthenticationGuard, AuthenticationGuardAlternative } from "./components/AuthenticationGuard.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "create",
-        element: <AuthenticationGuard component={CreateNote} />,
+        element: <AuthenticationGuardAlternative component={CreateNote} />,
       },
       {
         path: "author/:author",
