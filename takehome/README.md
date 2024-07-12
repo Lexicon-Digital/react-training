@@ -7,30 +7,28 @@ Create a resource library for React development.
 - add new resource
 
 
-Re-purpose the posts-API to create a React related resource collection. 
+Please use the API below to get/add resources 
 
 ```
-https://intro-lemon.vercel.app/api/posts/
-{ 
-    "author": 'RESOURCE', 
-    "note": 
-'{"url":"https://react.dev","description":"React developer resources","keyworkds":["react","javascript"]}' 
+GET https://intro-lemon.vercel.app/api/links 
+
+POST https://intro-lemon.vercel.app/api/links 
+{
+    "url": "https://react.dev/learn",
+    "description": "NextJs documentation",
+    "keywords":"react, js, library"
 }
+
+
+DELETE https://intro-lemon.vercel.app/api/links/669077f0fcd039a3d9f29214
 ```
 
 ```typescript
 
-type Filter = "RESOURCE"
-
-type Details = {
+type Resource = {
     url: string, 
     description:string, 
     keywords:string[]
-}
-
-type Resource = {
-    author: Filter
-    details: Details
 }
 
 ```
